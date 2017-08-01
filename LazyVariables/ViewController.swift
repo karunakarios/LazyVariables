@@ -14,12 +14,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let p1 = Person.init(name: "karuna", gender: "Male")
-        print("Lazy: \(p1.greetMe)")
+
         print("Method: \(p1.greet())")
         
-        p1.name = "Karunakar"
-        
-        print("Lazy after name change: \(p1.greetMe)")
+        p1.name = "Kiran"
+
         print("Method after name change: \(p1.greet())")
         
     }

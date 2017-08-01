@@ -13,9 +13,14 @@ class Person: NSObject {
     var name: String
     var gender: String
     
-    lazy var greetMe: String = {  //complex logic executed first time and saved
+    lazy var greetPrefix: String = {  //complex logic executed first time and saved
         [unowned self] () in
-        return "Hello \(self.name)!"
+        if self.gender.lowercased() == "male" {
+            return "Mr."
+        }
+        else {
+            return "Ms."
+        }
         }()
     
     init(name: String, gender: String) {
@@ -24,7 +29,7 @@ class Person: NSObject {
     }
     
     func greet() -> String {
-        return "Hello \(self.name)!"
+        return "Hello \(self.greetPrefix) \(self.name)!"
     }
 
 }
