@@ -31,23 +31,19 @@ class Person: NSObject {
      
     */
     
-    lazy var greetPrefix: String = {
+    lazy var greetMe: String = {
         [unowned self] () in
         if self.gender.lowercased() == "male" {
-            return "Mr."
+            return "Hello Mr. \(self.name)!"
         }
         else {
-            return "Ms."
+            return "Hello Ms. \(self.name)!"
         }
         }()
     
     init(name: String, gender: String) {
         self.name = name
         self.gender = gender
-    }
-    
-    func greet() -> String {
-        return "Hello \(self.greetPrefix) \(self.name)!"
     }
 
 }
