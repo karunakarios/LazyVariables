@@ -10,9 +10,20 @@ import UIKit
 
 class Person: NSObject {
     
-    var name: String
-    var gender: String
-   
+    var name: String {
+        didSet {
+            print("name change")
+            self.greetMe = self.greetAsPerGenderAndName()
+        }
+    }
+    
+    var gender: String {
+        didSet {
+            print("gender change")
+            self.greetMe = self.greetAsPerGenderAndName()
+        }
+    }
+
     /*
      
      Lazy can not be used on a let
@@ -33,17 +44,21 @@ class Person: NSObject {
     
     lazy var greetMe: String = {
         [unowned self] () in
+             return self.greetAsPerGenderAndName()
+        }()
+    
+    init(name: String, gender: String) {
+        self.name = name
+        self.gender = gender
+    }
+    
+    func greetAsPerGenderAndName() -> String {
         if self.gender.lowercased() == "male" {
             return "Hello Mr. \(self.name)!"
         }
         else {
             return "Hello Ms. \(self.name)!"
         }
-        }()
-    
-    init(name: String, gender: String) {
-        self.name = name
-        self.gender = gender
     }
 
 }
