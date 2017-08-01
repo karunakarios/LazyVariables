@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let p1 = Person.init(name: "karuna", gender: "Male")
+        let p1 = Person.init(name: "MaleName", gender: "Male")
 
         print("Method: \(p1.greet())")
         
-        p1.name = "Kiran"
-
+        p1.name = "FemaleName"
+        p1.gender = "Female"
         print("Method after name change: \(p1.greet())")
         
     }

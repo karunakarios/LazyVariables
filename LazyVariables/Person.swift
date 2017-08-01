@@ -13,6 +13,13 @@ class Person: NSObject {
     var name: String
     var gender: String
     
+    /*
+ 
+     Lazy can not be used on a let
+     Lazy properties must have an initializer
+ 
+    */
+    
     lazy var greetPrefix: String = {  //complex logic executed first time and saved
         [unowned self] () in
         if self.gender.lowercased() == "male" {
